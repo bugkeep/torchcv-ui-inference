@@ -1,0 +1,79 @@
+.DS_Store
+.reviewboardrc
+*.pyc
+*.conf_bk
+*.pth
+*.so
+*.bmp
+*.o
+/log
+/checkpoints
+/results
+/.idea
+/val/results
+/vis/results
+.ipynb_checkpoints
+/models/backbones/pretrained
+*.ninja_deps
+*.ninja_log
+*.ninja
+/extensions/apis/cocoapi/PythonAPI/build
+*.png
+*.jpg
+/build
+/dist
+/*.egg-info
+/exts/apis/cocoapi/PythonAPI/build/
+/docs/build
+/exts/ops/nms/src/soft_nms_cpu.cpp
+
+# 项目特定文件
+# 可执行文件（太大，不应该上传到GitHub）
+dist/ui_inference_dist/ui_inference.exe
+dist/ui_inference.exe
+
+# 输出文件
+output_*/
+test_output/
+*.html
+
+# 中文文档（不上传到GitHub）
+README_CN.md
+GitHub上传指南.md
+使用说明.md
+开发文档.md
+快速开始.md
+
+# 虚拟环境
+torchcv_env/
+venv/
+env/
+.venv/
+
+# Python缓存
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 测试图片（如果太大）
+# testimage/*.png
+# testimage/*.jpg
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
