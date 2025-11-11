@@ -1,177 +1,155 @@
-# TorchCV: A PyTorch-Based Framework for Deep Learning in Computer Vision
-```
-@misc{you2019torchcv,
-    author = {Ansheng You and Xiangtai Li and Zhen Zhu and Yunhai Tong},
-    title = {TorchCV: A PyTorch-Based Framework for Deep Learning in Computer Vision},
-    howpublished = {\url{https://github.com/donnyyou/torchcv}},
-    year = {2019}
-}
-```
+# UI推理工具 - UI界面分割和HTML代码生成
 
-This repository provides source code for most deep learning based cv problems. We'll do our best to keep this repository up-to-date.  If you do find a problem about this repository, please raise an issue or submit a pull request.
-```diff
-- Semantic Flow for Fast and Accurate Scene Parsing
-- Code and models: https://github.com/lxtGH/SFSegNets
-```
-## Implemented Papers
+基于深度学习的UI界面分割工具，可以将UI设计图片自动分割成不同的组件，并生成对应的HTML和CSS代码。
 
-- [Image Classification](https://github.com/youansheng/torchcv/tree/master/runner/cls)
-    - VGG: Very Deep Convolutional Networks for Large-Scale Image Recognition
-    - ResNet: Deep Residual Learning for Image Recognition
-    - DenseNet: Densely Connected Convolutional Networks
-    - ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices
-    - ShuffleNet V2: Practical Guidelines for Ecient CNN Architecture Design
-    - Partial Order Pruning: for Best Speed/Accuracy Trade-off in Neural Architecture Search
+## ✨ 特性
 
-- [Semantic Segmentation](https://github.com/youansheng/torchcv/tree/master/runner/seg)
-    - DeepLabV3: Rethinking Atrous Convolution for Semantic Image Segmentation
-    - PSPNet: Pyramid Scene Parsing Network
-    - DenseASPP: DenseASPP for Semantic Segmentation in Street Scenes
-    - Asymmetric Non-local Neural Networks for Semantic Segmentation
-    - Semantic Flow for Fast and Accurate Scene Parsing
-    
-- [Object Detection](https://github.com/youansheng/torchcv/tree/master/runner/det)
-    - SSD: Single Shot MultiBox Detector
-    - Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks
-    - YOLOv3: An Incremental Improvement
-    - FPN: Feature Pyramid Networks for Object Detection
+- 🚀 **开箱即用** - 提供单文件可执行文件，无需安装Python环境
+- 🎯 **高精度分割** - 基于SFNet深度学习模型，准确识别UI组件
+- 📱 **多组件支持** - 支持按钮、文本框、列表、图标等多种UI组件
+- 🌐 **HTML生成** - 自动生成完整的HTML和CSS代码
+- 💻 **CPU/GPU支持** - 支持CPU和GPU推理，适配不同硬件环境
+- 🔤 **中文路径支持** - 完美支持中文路径和文件名
+- 📖 **详细文档** - 提供完整的使用说明和故障排除指南
 
-- [Pose Estimation](https://github.com/youansheng/torchcv/tree/master/runner/pose)
-    - CPM: Convolutional Pose Machines
-    - OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields
+## 🚀 快速开始
 
-- [Instance Segmentation](https://github.com/youansheng/torchcv/tree/master/runner/seg)
-    - Mask R-CNN
+### 方式一：使用可执行文件（推荐）
 
-- [Generative Adversarial Networks](https://github.com/youansheng/torchcv/tree/master/runner/gan)
-    - Pix2pix: Image-to-Image Translation with Conditional Adversarial Nets
-    - CycleGAN: Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.
+1. **下载可执行文件**
+   - 从 [Releases](https://github.com/your-username/torchcv-ui-inference/releases) 下载最新版本
+   - 解压到任意目录
 
+2. **运行测试**
+   ```batch
+   .\scripts\test_exe.bat
+   ```
 
-## QuickStart with TorchCV
-Now only support Python3.x, pytorch 1.3.
-```bash
-pip3 install -r requirements.txt
-cd lib/exts
-sh make.sh
-```
+3. **查看结果**
+   - 打开 `dist/ui_inference_dist/test_output/output.html` 查看生成的HTML代码
 
+### 方式二：从源代码运行
 
-## Performances with TorchCV
-All the performances showed below fully reimplemented the papers' results.
+1. **克隆仓库**
+   ```bash
+   git clone https://github.com/your-username/torchcv-ui-inference.git
+   cd torchcv-ui-inference
+   ```
 
-#### Image Classification
-- ImageNet (Center Crop Test): 224x224
+2. **安装依赖**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-| Model | Train | Test | Top-1 | Top-5 | BS | Iters | Scripts |
-|:--------|:---------|:------|:------|:------|:------|:------|:------|
-| ResNet50 | train | val | 77.54 | 93.59 | 512 | 30W | [ResNet50](https://github.com/youansheng/torchcv/blob/master/scripts/cls/imagenet/run_ic_res50_imagenet_cls.sh) |
-| ResNet101 | train | val | 78.94 | 94.56 | 512 | 30W | [ResNet101](https://github.com/youansheng/torchcv/blob/master/scripts/cls/imagenet/run_ic_res101_imagenet_cls.sh) |
-| ShuffleNetV2x0.5 | train | val | 60.90 | 82.54 | 1024 | 40W | [ShuffleNetV2x0.5](https://github.com/youansheng/torchcv/blob/master/scripts/cls/imagenet/run_ic_shufflenetv2x0.5_imagenet_cls.sh) |
-| ShuffleNetV2x1.0 | train | val | 69.71 | 88.91 | 1024 | 40W | [ShuffleNetV2x1.0](https://github.com/youansheng/torchcv/blob/master/scripts/cls/imagenet/run_ic_shufflenetv2x1.0_imagenet_cls.sh) |
-| DFNetV1 | train | val | 70.99 | 89.68 | 1024 | 40W | [DFNetV1](https://github.com/youansheng/torchcv/blob/master/scripts/cls/imagenet/run_ic_dfnetv1_imagenet_cls.sh) |
-| DFNetV2 | train | val | 74.22 | 91.61 | 1024 | 40W | [DFNetV2](https://github.com/youansheng/torchcv/blob/master/scripts/cls/imagenet/run_ic_dfnetv2_imagenet_cls.sh) |
+3. **运行推理**
+   ```bash
+   python ui_inference_main.py --image "testimage/ui.png" --config "configs/seg/sfnet_res101_ui.conf" --checkpoint "checkpoints/seg/ui/sfnet_res101_ui_latest.pth" --output "output" --gpu -1
+   ```
 
-#### Semantic Segmentation
-- Cityscapes (Single Scale Whole Image Test): Base LR 0.01, Crop Size 769
+## 📖 使用说明
 
-| Model | Backbone | Train | Test | mIOU | BS | Iters | Scripts |
-|:--------|:---------|:------|:------|:------|:------|:------|:------|
-| [PSPNet]() | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | 78.20 | 8 | 4W | [PSPNet](https://github.com/youansheng/torchcv/blob/master/scripts/seg/cityscapes/run_fs_pspnet_cityscapes_seg.sh) |
-| [DeepLabV3]() | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | 79.13 | 8 | 4W | [DeepLabV3](https://github.com/youansheng/torchcv/blob/master/scripts/seg/cityscapes/run_fs_deeplabv3_cityscapes_seg.sh) |
+详细的使用说明请参考 [使用说明.md](使用说明.md)
 
-- ADE20K (Single Scale Whole Image Test): Base LR 0.02, Crop Size 520
+快速开始请参考 [快速开始.md](快速开始.md)
 
-| Model | Backbone | Train | Test | mIOU | PixelACC | BS | Iters | Scripts |
-|:--------|:---------|:------|:------|:------|:------|:------|:------|:------|
-| [PSPNet]() | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 41.52 | 80.09 | 16 | 15W | [PSPNet](https://github.com/youansheng/torchcv/blob/master/scripts/seg/ade20k/run_fs_res50_pspnet_ade20k_seg.sh) |
-| [DeepLabv3]() | [3x3-Res50](https://drive.google.com/open?id=1zPQLFd9c1yHfkQn5CWBCcEKmjEEqxsWx) | train | val | 42.16 | 80.36 | 16 | 15W | [DeepLabV3](https://github.com/youansheng/torchcv/blob/master/scripts/seg/ade20k/run_fs_res50_deeplabv3_ade20k_seg.sh) |
-| [PSPNet]() | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | 43.60 | 81.30 | 16 | 15W | [PSPNet](https://github.com/youansheng/torchcv/blob/master/scripts/seg/ade20k/run_fs_res101_pspnet_ade20k_seg.sh) |
-| [DeepLabv3]() | [3x3-Res101](https://drive.google.com/open?id=1bUzCKazlh8ElGVYWlABBAb0b0uIqFgtR) | train | val | 44.13 | 81.42 | 16 | 15W | [DeepLabV3](https://github.com/youansheng/torchcv/blob/master/scripts/seg/ade20k/run_fs_res101_deeplabv3_ade20k_seg.sh) |
+## 🔧 系统要求
 
-#### Object Detection
-- Pascal VOC2007/2012 (Single Scale Test): 20 Classes
+### 使用可执行文件
+- Windows 10/11 (64位)
+- 至少 4GB 可用内存
+- 至少 2GB 可用磁盘空间
 
-| Model | Backbone | Train | Test | mAP | BS | Epochs | Scripts |
-|:--------|:---------|:------|:------|:------|:------|:------|:------|
-| [SSD300](https://drive.google.com/open?id=15J5blVyZq7lqCePh-Q8S2pxim3-f_8LP) | [VGG16](https://drive.google.com/open?id=1nM0UwmqR4lIHzmRWvs71jfP_gAekjuKy) | 07+12_trainval | 07_test | 0.786 | 32 | 235 | [SSD300](https://github.com/youansheng/torchcv/blob/master/scripts/det/voc/run_ssd300_vgg16_voc_det.sh) |
-| [SSD512](https://drive.google.com/open?id=1RF5gnqfiyz-EcSFU1OSK7tNuX_VRObVW) | [VGG16](https://drive.google.com/open?id=1nM0UwmqR4lIHzmRWvs71jfP_gAekjuKy) | 07+12_trainval | 07_test | 0.808 | 32 | 235 | [SSD512](https://github.com/youansheng/torchcv/blob/master/scripts/det/voc/run_ssd512_vgg16_voc_det.sh) |
-| [Faster R-CNN](https://drive.google.com/open?id=15SfklRiI1McVWEq9EAceznK-9sxXSQR4) | [VGG16](https://drive.google.com/open?id=1ZL9SS9KRzsDQhMe8kyPQ1LHA60wx_Vcj) | 07_trainval | 07_test | 0.706 | 1 | 15 | [Faster R-CNN](https://github.com/youansheng/torchcv/blob/master/scripts/det/voc/run_fr_vgg16_voc_det.sh) |
+### 从源代码运行
+- Python 3.7+
+- PyTorch 1.0+
+- 其他依赖见 `requirements.txt`
 
-#### Pose Estimation
-- OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields
+## 📝 使用示例
 
-#### Instance Segmentation
-- Mask R-CNN
+### 基本用法
 
-#### Generative Adversarial Networks
-- Pix2pix
-- CycleGAN
-
-
-## DataSets with TorchCV
-TorchCV has defined the dataset format of all the tasks which you could check in the subdirs of [data](https://github.com/youansheng/torchcv/tree/master/data). Following is an example dataset directory trees for training semantic segmentation. You could preprocess the open datasets with the scripts in folder [data/seg/preprocess](https://github.com/youansheng/torchcv/tree/master/data/seg/preprocess)
-```
-Dataset
-    train
-        image
-            00001.jpg/png
-            00002.jpg/png
-            ...
-        label
-            00001.png
-            00002.png
-            ...
-    val
-        image
-            00001.jpg/png
-            00002.jpg/png
-            ...
-        label
-            00001.png
-            00002.png
-            ...
+```batch
+ui_inference.exe --image "ui.png" --config "configs\seg\sfnet_res101_ui.conf" --checkpoint "checkpoint.pth" --output "output" --gpu -1
 ```
 
+### 参数说明
 
-## Commands with TorchCV
+| 参数 | 说明 | 必需 |
+|------|------|------|
+| `--image` | 输入的UI图片路径 | ✅ |
+| `--config` | 模型配置文件路径 | ✅ |
+| `--checkpoint` | 模型权重文件路径 | ✅ |
+| `--output` | 输出目录路径 | ✅ |
+| `--gpu` | GPU ID（-1表示使用CPU） | ❌ |
 
-Take PSPNet as an example. ("tag" could be any string, include an empty one.)
-- Training
-```bash
-cd scripts/seg/cityscapes/
-bash run_fs_pspnet_cityscapes_seg.sh train tag
+## 📁 项目结构
+
+```
+torchcv-master/
+├── dist/                          # 可执行文件目录
+│   └── ui_inference_dist/
+│       └── ui_inference.exe       # 可执行文件
+├── scripts/                       # 脚本目录
+│   ├── build_exe_clean.ps1       # 打包脚本
+│   ├── test_exe.bat              # 测试脚本
+│   └── upload_to_github.ps1      # GitHub上传脚本
+├── configs/                       # 配置文件目录
+│   └── seg/
+│       └── sfnet_res101_ui.conf  # 模型配置
+├── checkpoints/                   # 模型权重目录
+│   └── seg/
+│       └── ui/
+│           └── sfnet_res101_ui_latest.pth
+├── ui_inference_main.py          # 主程序
+├── 使用说明.md                   # 详细使用说明
+├── 快速开始.md                   # 快速开始指南
+└── README_CN.md                  # 本文件
 ```
 
-- Resume Training
-```bash
-cd scripts/seg/cityscapes/
-bash run_fs_pspnet_cityscapes_seg.sh train tag
-```
+## 🎯 功能特性
 
-- Validate
-```bash
-cd scripts/seg/cityscapes/
-bash run_fs_pspnet_cityscapes_seg.sh val tag
-```
+### 支持的UI组件
 
-- Testing:
-```bash
-cd scripts/seg/cityscapes/
-bash run_fs_pspnet_cityscapes_seg.sh test tag
-```
+- 按钮 (Button)
+- 文本框 (Text Input)
+- 图片 (Image)
+- 列表 (List)
+- 图标 (Icon)
+- 头部 (Header)
+- 底部 (Footer)
+- 等等...
 
-## Demos with TorchCV
+### 输出文件
 
-<div align="center">
+运行成功后，在输出目录中会生成：
+- `output.html` - 完整的HTML和CSS代码
+- `prediction_mask.png` - 分割结果可视化
+- 原始图片副本
 
-<img src="demo/openpose/samples/000000319721_vis.png" width="500px"/>
+## 🤝 贡献
 
-<p> Example output of <b>VGG19-OpenPose</b></p>
+欢迎提交Issue和Pull Request！
 
-<img src="demo/openpose/samples/000000475191_vis.png" width="500px"/>
+## 📄 许可证
 
-<p> Example output of <b>VGG19-OpenPose</b></p>
+请参考 [LICENSE](LICENSE) 文件。
 
-</div>
+## 🙏 致谢
+
+- 基于 [TorchCV](https://github.com/donnyyou/torchcv) 框架
+- 使用 [SFNet](https://github.com/lxtGH/SFSegNets) 模型
+
+## 📮 联系方式
+
+如有问题或建议，请提交 [Issue](https://github.com/your-username/torchcv-ui-inference/issues)
+
+## 🔗 相关链接
+
+- [详细使用说明](使用说明.md)
+- [快速开始指南](快速开始.md)
+- [GitHub上传指南](GitHub上传指南.md)
+
+---
+
+**最后更新：** 2025-11-11
 
